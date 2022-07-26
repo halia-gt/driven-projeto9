@@ -1,0 +1,12 @@
+button {
+    background: var(--color-button-orange);
+    padding: 11px 20px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+.margin {
+    margin-right: 8px;
+}

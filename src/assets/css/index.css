@@ -2,15 +2,10 @@
 
 * {
     --font-roboto: 'Roboto', sans-serif;
-    --color-text-dark-blue: #293845; 
+    --color-header-light-blue: #C3CFD9;
+    --color-text-dark-blue: #293845;
+    --color-button-orange: #E8833A;
+    --color-footer-light-blue: #DFE6ED;
     font-family: var(--font-roboto);
-}
-
-h2 {
-    margin: 40px auto;
-    color: var(--color-text-dark-blue);
-    font-family: var(--font-roboto);
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
+    box-sizing: border-box;
 }

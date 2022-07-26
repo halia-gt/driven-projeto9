@@ -1,4 +1,6 @@
 import "../assets/css/home.css";
+import Title from "./Title";
+import Image from "./Image";
 
 export default function Home() {
     const movies = [
@@ -48,14 +50,16 @@ export default function Home() {
 
     return (
         <>
-            <h2>Selecione o filme</h2>
-            <ul className="movie-container">
+            <Title>
+                Selecione o filme
+            </Title>
+            <section className="movies-container">
                 {movies.map((movie) => (
-                    <li className="movie" key={movie.id}>
+                    <Image key={movie.id}>
                         <img src={movie.posterURL} alt="movie" />
-                    </li>
+                    </Image>
                 ))}
-            </ul>
+            </section>
         </>
     );
 }
