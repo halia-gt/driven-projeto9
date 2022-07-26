@@ -1,0 +1,12 @@
+header {
+    width: 100vw;
+    height: 70px;
+    background-color: #C3CFD9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-roboto);
+    font-size: 34px;
+    font-weight: 400;
+    color: #E8833A;
+}
