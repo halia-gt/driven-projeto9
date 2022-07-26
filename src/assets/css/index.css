@@ -2,5 +2,15 @@
 
 * {
     --font-roboto: 'Roboto', sans-serif;
+    --color-text-dark-blue: #293845; 
     font-family: var(--font-roboto);
+}
+
+h2 {
+    margin: 40px auto;
+    color: var(--color-text-dark-blue);
+    font-family: var(--font-roboto);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
 }
