@@ -134,6 +134,7 @@ const movie = {
 }
 
 export default function Movie() {
+
     return (
         <section className="time">
             <Title>
