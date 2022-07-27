@@ -10,3 +10,8 @@ button {
 .margin {
     margin-right: 8px;
 }
+
+.main-button {
+    width: 225px;
+    margin: 0 auto;
+}

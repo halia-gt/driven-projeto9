@@ -302,7 +302,7 @@ export default function Seats() {
                     </div>
                 </div>
                 <Form />
-                <Button>
+                <Button classExtra="main-button">
                     Reservar assento(s)
                 </Button>
             </section>

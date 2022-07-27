@@ -8,9 +8,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 90vw;
     max-width: 340px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    width: 90vw;
 }
 
 .seat-circle {

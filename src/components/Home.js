@@ -49,7 +49,7 @@ export default function Home() {
     ];
 
     return (
-        <>
+        <section className="home">
             <Title>
                 Selecione o filme
             </Title>
@@ -60,6 +60,6 @@ export default function Home() {
                     </Image>
                 ))}
             </section>
-        </>
+        </section>
     );
 }

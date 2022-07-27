@@ -135,7 +135,7 @@ const movie = {
 
 export default function Movie() {
     return (
-        <>
+        <section className="time">
             <Title>
                 Selecione o horário
             </Title>
@@ -158,6 +158,6 @@ export default function Movie() {
             <Footer sourceImage={movie.posterURL}>
                 <p>{movie.title}</p>
             </Footer>
-        </>
+        </section>
     );
 }

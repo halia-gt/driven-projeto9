@@ -1,0 +1,22 @@
+.sucess {
+    margin: 70px auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.sucess-container {
+    font-family: var(--font-roboto);
+    font-size: 22px;
+    color: var(--color-text-dark-blue);
+    margin-bottom: 70px;
+}
+
+.sucess-info {
+    margin-bottom: 40px;
+}
+
+.sucess-info h4 {
+    font-weight: 700;
+    margin-bottom: 7px;
+}
