@@ -158,7 +158,6 @@ export default function Movie() {
             <Footer sourceImage={movie.posterURL}>
                 <p>{movie.title}</p>
             </Footer>
-
         </>
     );
 }

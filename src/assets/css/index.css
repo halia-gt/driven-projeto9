@@ -4,8 +4,20 @@
     --font-roboto: 'Roboto', sans-serif;
     --color-header-light-blue: #C3CFD9;
     --color-text-dark-blue: #293845;
+    --color-text-detail-blue: #4E5A65;
     --color-button-orange: #E8833A;
     --color-footer-light-blue: #DFE6ED;
+    --color-border-dark-blue: #7B8B99;
+    --color-border-turquoise: #1AAE9E;
+    --color-border-yellow: #F7C52B;
+    --color-circle-aqua: #8DD7CF;
+    --color-circle-yellow: #FBE192;
+    --color-background: #E5E5E5;
+    --color-text-gray: #AFAFAF;
     font-family: var(--font-roboto);
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
 }
