@@ -1,8 +1,11 @@
-.time {
+.sessions {
     margin: 70px 0 147px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.time-selection {
+.sessions-selection {
     width: 90vw;
     margin: 0 auto;
 }

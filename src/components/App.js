@@ -3,7 +3,7 @@ import "../assets/css/reset.css";
 import "../assets/css/index.css";
 import Header from "./Header";
 import Home from "./Home";
-import Time from "./Time";
+import Sessions from "./Sessions";
 import Seats from "./Seats";
 import Sucess from "./Sucess";
 
@@ -13,7 +13,7 @@ export default function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/filme/:id" element={<Time />} />
+                <Route path="/filme/:movieId" element={<Sessions />} />
                 <Route path="/sessao/240" element={<Seats />} />
                 <Route path="/sucesso" element={<Sucess />} />
             </Routes>
