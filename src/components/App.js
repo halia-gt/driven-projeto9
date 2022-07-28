@@ -8,6 +8,7 @@ import Seats from "./Seats";
 import Sucess from "./Sucess";
 
 export default function App() {
+    
     return (
         <BrowserRouter>
             <Header />

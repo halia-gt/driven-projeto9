@@ -2,7 +2,13 @@ form {
     width: 90vw;
     display: flex;
     flex-direction: column;
-    margin: 42px auto;
+    margin: 42px auto 0 auto;
+}
+
+.forms-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 57px;
 }
 
 label {

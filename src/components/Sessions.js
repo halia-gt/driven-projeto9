@@ -13,7 +13,7 @@ export default function Sessions() {
 
     
     useEffect(() => {
-        const url = `https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieId}/showtimes`;
+        const url = `https://mock-api.driven.com.br/api/v7/cineflex/movies/${movieId}/showtimes`;
         const promise = axios.get(url);
 
         promise.then((answer) => {
@@ -37,7 +37,7 @@ export default function Sessions() {
                                 <div className="time-buttons">
                                     {day.showtimes.map((time) => (
                                         <Link to={`/sessao/${time.id}`} key={time.id}>
-                                            <Button key={time.id} classExtra="margin">{time.name}</Button>
+                                            <Button key={time.id} classExtra="margin-right">{time.name}</Button>
                                         </Link>
                                     ))}
                                 </div>

@@ -46,12 +46,12 @@
     border-color: var(--color-border-turquoise);
 }
 
-.seat-circle.avaliable {
+.seat-circle.available {
     background-color: var(--color-header-light-blue);
     border-color: var(--color-border-dark-blue);
 }
 
-.seat-circle.unavaliable {
+.seat-circle.unavailable {
     background-color: var(--color-circle-yellow);
     border-color: var(--color-border-yellow);
 }
