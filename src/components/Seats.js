@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Title from "./Title";
 import Footer from "./Footer";
@@ -7,7 +7,7 @@ import "../assets/css/seats.css";
 import Forms from "./Forms";
 import Spinner from "./Spinner";
 
-function Seat({ id, name, isAvailable, seatsId, setSeatsId }) {
+function Seat({ id, name, isAvailable, seatsId, setSeatsId, seatsName, setSeatsName }) {
     const [selected, setSelected] = useState(false);
     let classColor = 'seat-circle';
 
@@ -23,17 +23,21 @@ function Seat({ id, name, isAvailable, seatsId, setSeatsId }) {
         setSelected(!selected);
 
         if (seatsId.includes(id)) {
-            const arrayAux = [...seatsId];
+            const arrayAux1 = [...seatsId];
+            const arrayAux2 = [...seatsName];
 
-            for( let i = 0; i < arrayAux.length; i++){         
-                if ( arrayAux[i] === id) { 
-                    arrayAux.splice(i, 1); 
+            for( let i = 0; i < arrayAux1.length; i++){         
+                if ( arrayAux1[i] === id) { 
+                    arrayAux1.splice(i, 1); 
+                    arrayAux2.splice(i, 1);
                 }
             }
 
-            setSeatsId(arrayAux);
+            setSeatsId(arrayAux1);
+            setSeatsName(arrayAux2);
         } else {
             setSeatsId([...seatsId, id]);
+            setSeatsName([...seatsName, name]);
         }
     }
 
@@ -48,8 +52,10 @@ export default function Seats() {
     const [seats, setSeats] = useState({});
     const { sessionId } = useParams();
     const [seatsId, setSeatsId] = useState([]);
+    const [seatsName, setSeatsName] = useState([]);
     const [document, setDocument] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const url = `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${sessionId}/seats`;
@@ -60,19 +66,28 @@ export default function Seats() {
         })
     }, [sessionId]);
 
-    function requestTickets(e) {
+    function handleSubmit(e) {
         e.preventDefault();
 
         if (seatsId.length > 0) {
             const url = 'https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many';
-            const ticket = {
+            const objTicket = {
                 ids: seatsId,
                 name: name,
                 cpf: document
             }
-            console.log(ticket);
-            // const promise = axios.post(url, ticket);
-            // promise.catch(error => {console.log(error)});
+            console.log(objTicket);
+
+            /* ticket.movie = seats.movie.title;
+            ticket.date = seats.day.date;
+            ticket.time = seats.name;
+            ticket.seats = [...seatsName];
+            ticket.name = name;
+            ticket.cpf = document; */
+
+            const promise = axios.post(url, objTicket);
+            promise.catch(error => {console.log(error)});
+            promise.then(answer => {navigate('/sucesso')});
         } else {
             alert('Escolha os assentos');
         }
@@ -89,7 +104,7 @@ export default function Seats() {
                     </Title>
                     <ul className="seats-container">
                         {seats.seats.map(seat => (
-                            <Seat key={seat.id} {...seat} seatsId={seatsId} setSeatsId={setSeatsId} />
+                            <Seat key={seat.id} {...seat} seatsId={seatsId} setSeatsId={setSeatsId} seatsName={seatsName} setSeatsName={setSeatsName} />
                         ))}
                     </ul>
                     <div className="seats-status-container">
@@ -106,7 +121,7 @@ export default function Seats() {
                             <p>Indisponível</p>
                         </div>
                     </div>
-                    <Forms document={document} setDocument={setDocument} name={name} setName={setName} requestTickets={requestTickets} />
+                    <Forms document={document} setDocument={setDocument} name={name} setName={setName} handleSubmit={handleSubmit} />
                     <Footer sourceImage={seats.movie.posterURL}>
                         <p>{seats.movie.title}</p>
                         <p>{seats.day.weekday} - {seats.name}</p>

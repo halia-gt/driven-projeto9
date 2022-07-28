@@ -2,9 +2,9 @@ import { cpfMask } from "./common/mask";
 import Button from "./Button";
 import "../assets/css/forms.css";
 
-export default function Forms({document, setDocument, name, setName, requestTickets}) {
+export default function Forms({document, setDocument, name, setName, handleSubmit}) {
     return (
-        <form onSubmit={requestTickets}>
+        <form onSubmit={handleSubmit}>
             <div className="forms-container">
                 <label htmlFor="name">Nome do comprador:</label>
                 <input
@@ -26,7 +26,6 @@ export default function Forms({document, setDocument, name, setName, requestTick
                     required
                 />
             </div>
-            
             <Button classExtra="main-button margin-top" type="submit">
                 Reservar assento(s)
             </Button>

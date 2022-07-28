@@ -12,7 +12,7 @@ export default function Sucess() {
                 <div className="sucess-info">
                     <h4>Filme e sessão</h4>
                     <p>Enola Holmes</p>
-                    <p>24/06/2021</p>
+                    <p>24/06/2021 - 15:00</p>
                 </div>
                 <div className="sucess-info">
                     <h4>Ingressos</h4>
