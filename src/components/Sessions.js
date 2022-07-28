@@ -1,11 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Title from "./Title";
 import "../assets/css/sessions.css";
 import Button from "./Button";
 import Footer from "./Footer";
-import { useEffect } from "react";
 import Spinner from "./Spinner";
 
 export default function Sessions() {
@@ -20,24 +19,26 @@ export default function Sessions() {
         promise.then((answer) => {
             setMovie(answer.data);
         })
-    }, []);
+    }, [movieId]);
 
     return (
         <section className="sessions">
-            <Title>
-                Selecione o horário
-            </Title>
             {(Object.keys(movie).length === 0) ? (
                 <Spinner />
             ) : (
                 <>
+                    <Title>
+                        Selecione o horário
+                    </Title>
                     <section className="sessions-selection">
                         {movie.days.map((day) => (
                             <div key={day.id}>
                                 <h3>{day.weekday} - {day.date}</h3>
                                 <div className="time-buttons">
                                     {day.showtimes.map((time) => (
-                                        <Button key={time.id} classExtra="margin">{time.name}</Button>
+                                        <Link to={`/sessao/${time.id}`} key={time.id}>
+                                            <Button key={time.id} classExtra="margin">{time.name}</Button>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -49,8 +50,6 @@ export default function Sessions() {
                     </Footer>
                 </>
             )}
-            
-
         </section>
     );
 }
