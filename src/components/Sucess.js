@@ -1,8 +1,11 @@
+import { Link, useLocation } from "react-router-dom";
 import "../assets/css/sucess.css";
 import Button from "./Button";
 import Title from "./Title";
 
 export default function Sucess() {
+    const location = useLocation();
+
     return (
         <section className="sucess">
             <Title classExtra="bold-green">
@@ -11,23 +14,28 @@ export default function Sucess() {
             <div className="sucess-container">
                 <div className="sucess-info">
                     <h4>Filme e sessão</h4>
-                    <p>Enola Holmes</p>
-                    <p>24/06/2021 - 15:00</p>
+                    <p>{location.state.movie}</p>
+                    <p>{location.state.date} - {location.state.time}</p>
                 </div>
                 <div className="sucess-info">
                     <h4>Ingressos</h4>
-                    <p>Assento 16</p>
-                    <p>Assento 17</p>
+                    {location.state.seats.map((seat, index) => (
+                        <p key={index}>Assento {seat}</p>
+                    ))}
                 </div>
                 <div className="sucess-info">
                     <h4>Comprador</h4>
-                    <p>Nome: João da Silva Sauro</p>
-                    <p>CPF: 123.456.789-10</p>
+                    <p>Nome: {location.state.name}</p>
+                    <p>CPF: {location.state.cpf}</p>
                 </div>
             </div>
-            <Button classExtra="main-button">
-                Voltar pra Home
-            </Button>
+            <Link to="/">
+                <div className="button-container">
+                    <Button classExtra="main-button">
+                        Voltar pra Home
+                    </Button>
+                </div>
+            </Link>
         </section>
     );
 }

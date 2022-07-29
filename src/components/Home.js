@@ -4,6 +4,7 @@ import axios from "axios";
 import "../assets/css/home.css";
 import Title from "./Title";
 import Image from "./Image";
+import Spinner from "./Spinner";
 
 export default function Home() {
     const [movies, setMovies] = useState([]);
@@ -18,17 +19,24 @@ export default function Home() {
     }, []);
 
     return (
-        <section className="home">
-            <Title>
-                Selecione o filme
-            </Title>
-            <section className="movies-container">
-                {movies.map((movie) => (
-                    <Image key={movie.id}>
-                        <Link to={`/filme/${movie.id}`}><img src={movie.posterURL} alt="movie" /></Link>
-                    </Image>
-                ))}
-            </section>
-        </section>
+        <>
+            {(movies.length === 0) ? (
+                <Spinner />
+            ) : (
+                <section className="home">
+                    <Title>
+                        Selecione o filme
+                    </Title>
+                    <section className="movies-container">
+                        {movies.map((movie) => (
+                            <Image key={movie.id}>
+                                <Link to={`/filme/${movie.id}`}><img src={movie.posterURL} alt="movie" /></Link>
+                            </Image>
+                        ))}
+                    </section>
+                </section>
+            )}
+        </>
+
     );
 }

@@ -20,3 +20,9 @@
     font-weight: 700;
     margin-bottom: 7px;
 }
+
+.button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

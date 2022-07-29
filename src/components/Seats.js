@@ -76,18 +76,23 @@ export default function Seats() {
                 name: name,
                 cpf: document
             }
-            console.log(objTicket);
 
-            /* ticket.movie = seats.movie.title;
-            ticket.date = seats.day.date;
-            ticket.time = seats.name;
-            ticket.seats = [...seatsName];
-            ticket.name = name;
-            ticket.cpf = document; */
+            const ticket = {
+                movie: seats.movie.title,
+                date: seats.day.date,
+                time: seats.name,
+                seats: [...seatsName],
+                name: name,
+                cpf: document
+            }
 
             const promise = axios.post(url, objTicket);
             promise.catch(error => {console.log(error)});
-            promise.then(answer => {navigate('/sucesso')});
+            promise.then(answer => {
+                navigate('/sucesso', {
+                    replace: true,
+                    state: ticket
+                })});
         } else {
             alert('Escolha os assentos');
         }

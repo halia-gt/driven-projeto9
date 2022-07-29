@@ -26,7 +26,7 @@ export default function Forms({document, setDocument, name, setName, handleSubmi
                     required
                 />
             </div>
-            <Button classExtra="main-button margin-top" type="submit">
+            <Button classExtra="main-button" type="submit">
                 Reservar assento(s)
             </Button>
         </form>

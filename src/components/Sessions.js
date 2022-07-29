@@ -10,7 +10,6 @@ import Spinner from "./Spinner";
 export default function Sessions() {
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
-
     
     useEffect(() => {
         const url = `https://mock-api.driven.com.br/api/v7/cineflex/movies/${movieId}/showtimes`;

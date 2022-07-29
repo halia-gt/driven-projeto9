@@ -7,7 +7,7 @@ import Sessions from "./Sessions";
 import Seats from "./Seats";
 import Sucess from "./Sucess";
 
-export default function App() {
+export default function App() {    
     return (
         <BrowserRouter>
             <Header />
