@@ -9,7 +9,7 @@
     font-family: var(--font-roboto);
     font-size: 22px;
     color: var(--color-text-dark-blue);
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 .sucess-info {
@@ -19,6 +19,10 @@
 .sucess-info h4 {
     font-weight: 700;
     margin-bottom: 7px;
+}
+
+.sucess-info p {
+    margin-bottom: 3px;
 }
 
 .button-container {

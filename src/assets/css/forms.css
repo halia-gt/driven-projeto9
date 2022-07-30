@@ -6,9 +6,12 @@ form {
 }
 
 .forms-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 57px;
+    margin-bottom: 30px;
+}
+
+form h3 {
+    color: var(--color-text-dark-blue);
+    margin-top: 0;
 }
 
 label {

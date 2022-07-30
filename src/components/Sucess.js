@@ -26,9 +26,13 @@ export default function Sucess() {
                     ))}
                 </div>
                 <div className="sucess-info">
-                    <h4>Comprador</h4>
-                    <p>Nome: {location.state.name}</p>
-                    <p>CPF: {location.state.cpf}</p>
+                    <h4>Compradores</h4>
+                    {location.state.buyers.map((buyer) => (
+                        <div className="sucess-info">
+                            <p>Nome: {buyer.nome}</p>
+                            <p>CPF: {buyer.cpf}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
             <Link to="/">
