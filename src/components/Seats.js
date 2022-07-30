@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { IconContext } from "react-icons";
-import { IoIosReturnLeft } from "react-icons/io";
+import ReturnButton from "./common/ReturnButton";
 import axios from "axios";
 import Title from "./Title";
 import Footer from "./Footer";
@@ -59,8 +58,6 @@ export default function Seats() {
     const [name, setName] = useState('');
     const navigate = useNavigate();
 
-    console.log(seats);
-
     useEffect(() => {
         const url = `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${sessionId}/seats`;
         const promise = axios.get(url);
@@ -109,9 +106,7 @@ export default function Seats() {
                 <Spinner />
             ) : (
                 <>
-                    <IconContext.Provider value={{ color: "#E8833A", size: "2em", className: "react-icon" }}>
-                        <IoIosReturnLeft onClick={() => { navigate(`/filme/${seats.movie.id}`) }} />
-                    </IconContext.Provider>
+                    <ReturnButton returnTo={`/filme/${seats.movie.id}`} />
                     <Title>
                         Selecione o(s) assento(s)
                     </Title>

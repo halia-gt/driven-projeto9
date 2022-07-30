@@ -1,7 +1,6 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { IconContext } from "react-icons";
-import { IoIosReturnLeft } from "react-icons/io";
+import ReturnButton from "./common/ReturnButton";
 import axios from "axios";
 import Title from "./Title";
 import "../assets/css/sessions.css";
@@ -12,7 +11,6 @@ import Spinner from "./Spinner";
 export default function Sessions() {
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
-    const navigate = useNavigate();
     
     useEffect(() => {
         const url = `https://mock-api.driven.com.br/api/v7/cineflex/movies/${movieId}/showtimes`;
@@ -25,9 +23,7 @@ export default function Sessions() {
 
     return (
         <section className="sessions">
-            <IconContext.Provider value={{ color: "#E8833A", size: "2em", className: "react-icon" }}>
-                <IoIosReturnLeft onClick={() => { navigate('/') }}/>
-            </IconContext.Provider>
+            <ReturnButton returnTo={'/'} />
             {(Object.keys(movie).length === 0) ? (
                 <Spinner />
             ) : (
