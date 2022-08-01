@@ -93,8 +93,6 @@ export default function Seats() {
                 buyers: buyers
             }
 
-            console.log(seats);
-
             const promise = axios.post(url, body);
             promise.catch(error => {console.log(error)});
             promise.then(answer => {
